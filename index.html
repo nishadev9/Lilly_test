@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    </head>
+    <body>
+        
+        <div class="container"> 
+            <div class ="weather-search">
+                <h1>Weather App</h1>
+                <form action="/weather" method="POST">
+                    <label> Enter City Name :</label>
+                    <input type="text" id="city" required>
+                    <button type="submit">Get Weather</button>
+                </form> 
+                
+                {% if weather %}
+                <div class="weather-result">
+                    <h2>Weather in {{weather['city']}}:</h2>
+                    <p>Temperature: {{weather['temperature']}} C</h2>
+                    <p>Description: {{ weather['description'] }}</p>    
+            </div>
+                {% endif %}
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
